@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <!--CONEINER-DADOS-PESSOAIS-->
+    <main class="conteudo-dadosOperacionais">
+        
+        <div id="coteudoConteiner">
+            <h2 id="titulo">Dados pessoais :</h2>
+           <div class="labelPai">
+             <label class="label" for="nome">Nome do titular:</label><br>
+           </div>
+           
+        <input class="inputdados" type="text" name="nome" id="nome" placeholder="Nome"><br>
+           <div class="labelPai">
+             <label class="label" for="periodo">Periodo:</label><br>
+           </div>
+       
+        <input class="inputdados" type="text" name="periodo" id="periodo" placeholder="Periodo"><br>
+            <div class="labelPai">
+               <label class="label" for="ativo">Nome do Ativo:</label><br> 
+            </div>
+        
+        <input class="inputdados" type="text" name="ativo" id="ativo" placeholder="Ativo">
+        </div>
+    </main>
+
+    <!--CONEINER DADOS OPERACIONAIS-->
+    <main class="conteudo-dadosOperacionais">
+        <div id="conteinerMeio">
+            <h3 id="titulo2">Dados operacionais :</h3>
+
+         <div id="conteinerPai">
+     <div id="conteiner-1">
+        <div class="labelPai">
+            <label class="label" for="venceedores">Vencedores:</label>
+        </div>
+        
+         <input class="input" type="number" name="vencedores" id="vencedores" placeholder="Vencedores" required ><br>
+         <div class="labelPai">
+              <label class="label" for="retorno">Retorno:</label>
+         </div>
+       
+          <input class="input" type="number" name="retorno" id="retorno" placeholder="Retorno" required><br>
+          <div class="labelPai">
+             <label class="label" for="meta">Meta:</label>
+          </div>
+         
+         <input class="input" type="number" name="meta" id="metaMensal" placeholder="Meta" required><br>
+    </div>
+    <div id="conteiner-2">
+        <div class="labelPai">
+             <label class="label" for="perdedores">Perdedores:</label>
+        </div>
+       
+        <input class="input" type="number" name="perdedores" id="perdedores" placeholder="Perdedores" required><br>
+        <div class="labelPai">
+             <label class="label" for="riscoo">Risco:</label>
+        </div>
+       
+         <input class="input" type="number" name="risco" id="risco" placeholder="Risco" required><br>
+         <div class="labelPai">
+            <label class="label" for="stop">Stop:</label> 
+         </div>
+        
+        <input class="input" type="number" name="stop" id="stop" placeholder="Stop" required><br>
+   </div>
+    </div>
+
+    <!--CONTEINER MODAIDADE DE OPERAÇÕES-->
+    <div id="modalidade1" >
+            <h3>Escolha a modalidade :</h3>
+        </div>
+    <div id="modalidade">
+        
+          <div>
+             <input type="radio" name="rad" id="day" checked>
+          <label for="rad">Day Trade</label>
+          </div>
+        
+          <div>
+            <input type="radio" name="rad" id="swing">
+         <label for="rad">Swing Trade</label>
+          </div>
+         
+         <div>
+            <input type="radio" name="rad" id="position">
+         <label for="rad">Position Trade</label>
+         </div>
+         
+         <div>
+            <input type="radio" name="rad" id="bay">
+         <label for="rad">Holder</label>
+         </div>
+         
+    </div>
+    <!--BOTÃO DO DISPARO-->
+    <div id="button-pai">
+        <input id="button" type="button" value="CLICAR" onclick="clicar()"> 
+    </div>
+    </main>
+</div>
+    <!--OUTPUTS DOS RESULTADOS PROGRAMDOS-->
+    <main  class="conteudo-dadosOperacionais">
+        <div id="conteudo">
+            <h3 id="titulo3">Dados operacionais :</h3>
+
+            <div class="inputResultado">Numero de operações</div>
+        <div id="numeroDeOperacoes"></div><br>
+
+        <div class="inputResultado">Média de operações</div>
+        <div id="mediaDeOperacoes"></div><br>
+
+        <div class="inputResultado">Resultado</div>
+        <div id="resultadoAmostra"></div><br>
+
+        <div class="inputResultado">Relattório</div>
+        <div id="RelatorioOperacional"></div><br>
+
+        <div id="darf">
+            Clique aqui e pague sua darf desse mês:
+            <a href="https://sicalc.receita.economia.gov.br/sicalc/principal">PAGAR DARF</a>
+        </div>
+    </main>
+    <!--ENCERRAMENTO DO HTML E INICIO DO JAVASRYPT-->
+</nav>
+<script>
+    function clicar(){
+        //DADOS PESSOAIS- VARIAVEIS E VALORES
+        var nome = document.getElementById('nome')
+        var nome = nome.value
+        var periodo = document.getElementById('periodo')
+        var periodo = periodo.value
+        var ativo = document.getElementById('ativo')
+        var ativo = ativo.value
+        //CONTEINER 01 - DADOS OPERACIONAIS - VARIAVEIS E VALORES
+        var vencedores = document.getElementById('vencedores')
+        var vencedores = Number(vencedores.value)
+        var retorno = document.getElementById('retorno')
+        var retorno = Number(retorno.value)
+        var meta = document.getElementById('metaMensal')
+        var meta = Number(meta.value)
+
+        //CONTEINER 02 - DADOS OPERACIONAIS - VARIAVEISS E VALORES
+        var perdedores = document.getElementById('perdedores')
+        var perdedores = Number(perdedores.value)
+        var risco = document.getElementById('risco')
+        var risco = Number(risco.value)
+        var stop = document.getElementById('stop')
+        var stop = Number(stop.value)
+
+        //CALCULOS - DADOS OPERACIONAIS - CRIANDO VARIAVEIS PARA RECEBER OS CALCULOS
+        var Operacoes = vencedores + perdedores
+        var resultadoGanhos = vencedores * retorno
+        var resultadoPerdas = perdedores * risco
+        var resultado =  resultadoGanhos - resultadoPerdas
+        var media = resultado / Operacoes  
+
+        var resta = resultado - meta
+        var falta = meta - resultado
+        var restta = resultado + stop
+
+
+        var darf = resultado / 100
+        var darf1 = darf * 19
+        var darf2 = darf * 15
+        var darf3 = darf * 10
+        var darf4 = darf * 5
+
+
+        //RESULTADOS DA AMOSTRA
+        var numeroDeOperacoes = document.getElementById('numeroDeOperacoes')
+        var mediaDeOperacoes = document.getElementById('mediaDeOperacoes')
+        var resultadoAmostra = document.getElementById('resultadoAmostra')
+        var RelatorioOperacional = document.getElementById('RelatorioOperacional')
+
+        //RESULTADOS DOS CALCLULOS E IMPRIMIR NO HTML.
+        numeroDeOperacoes.innerHTML=`O numero total de operações foi de :${Operacoes}`
+        numeroDeOperacoes.style.textAlign='justify'
+        resultadoAmostra.innerHTML=`O resultado financeiro da amostra foi de ${resultado} R$`
+        resultadoAmostra.style.textAlign='justify'
+        mediaDeOperacoes.innerHTML=`A média de foi de ${media} R$`
+        mediaDeOperacoes.style.textAlign='justify'
+        RelatorioOperacional.innerHTML=""
+        RelatorioOperacional.style.textAlign='justify'
+
+         //MODALIDADE - DADOS OPERACIONAIS
+         var modalidade = document.getElementsByName('rad')
+
+         //CONDIÇÕES DO PROGRAMA
+         if(nome == "" || periodo == "" || ativo ==""){
+            alert('Verifique os dados e tente novamente!')
+            numeroDeOperacoes.innerHTML=""
+            resultadoAmostra.innerHTML=""
+            mediaDeOperacoes.innerHTML=""
+            RelatorioOperacional.innerHTML=""
+         }
+         if(modalidade[0].checked){
+           // alert('day')
+           modalidade=`Day trade`
+           imposto=`Para Day trade a DARF é de 19% do lucro mensal. `
+           if(resultado >= meta){
+           // alert("meta")
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta de ${meta}R$ ficando ${resta}R$ a cima da meta na modalidade ${modalidade} irá pagar ${darf1}R$ de darf<br> ${imposto}<br>`
+
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado >= 0 && resultado < meta){
+           // alert('dro positivo')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${falta}R$ para a meta na modalidade ${modalidade}irá pagar ${darf1}R$ de darf<br> ${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+            
+           }else if(resultado <= 0 && resultado > stop){
+           // alert('dro negat')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${restta}R$ para a meta na modalidade ${modalidade} NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado <= stop){
+           // alert('stop')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta STOP de ${stop}R$ na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }
+         }else if(modalidade[1].checked){
+           // alert('swing')
+           modalidade=`Swing trade`
+           imposto=`Para Swing trade a DARF é de 15% do lucro mensal. `
+           if(resultado >= meta){
+           // alert("meta")
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta de ${meta}R$ ficando ${resta}R$ a cima da meta na modalidade ${modalidade}irá pagar ${darf2}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado >= 0 && resultado < meta){
+           // alert('dro positivo')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${falta}R$ para a meta na modalidade ${modalidade}irá pagar ${darf2}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+            
+           }else if(resultado <= 0 && resultado > stop){
+           // alert('dro negat')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${restta}R$ para a meta na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado <= stop){
+           // alert('stop')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta STOP de ${stop}R$ na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }
+          }else if(modalidade[2].checked){
+          //  alert('position')
+          modalidade=`Position trade`
+          imposto=`Para Position trade a DARF é de 10% do lucro . `
+          if(resultado >= meta){
+           // alert("meta")
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta de ${meta}R$ ficando ${resta}R$ a cima da meta na modalidade ${modalidade}irá pagar ${darf3}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado >= 0 && resultado < meta){
+           // alert('dro positivo')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${falta}R$ para a meta na modalidade ${modalidade}irá pagar ${darf3}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+            
+           }else if(resultado <= 0 && resultado > stop){
+           // alert('dro negat')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${restta}R$ para a meta na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado <= stop){
+           // alert('stop')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta STOP de ${stop}R$ na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }
+         }else if (modalidade[3].checked){
+          //  alert('hold')
+          modalidade=`Holder`
+          imposto=`Para Holder a DARF é de 5% do lucro . `
+          if(resultado >= meta){
+           // alert("meta")
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta de ${meta}R$ ficando ${resta}R$ a cima da meta na modalidade ${modalidade}irá pagar ${darf4}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado >= 0 && resultado < meta){
+           // alert('dro positivo')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${falta}R$ para a meta na modalidade ${modalidade}irá pagar ${darf4}R$ de darf<br>${imposto}<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+            
+           }else if(resultado <= 0 && resultado > stop){
+           // alert('dro negat')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ NÃO atingindo a meta de ${meta}R$ faltando ${restta}R$ para a meta na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }else if(resultado <= stop){
+           // alert('stop')
+           RelatorioOperacional.innerHTML=`Detectamos o resultado de ${resultado}R$ atingindo a meta STOP de ${stop}R$ na modalidade ${modalidade}NÃO precisará se preocupar com darf esse mês!<br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao operador : <strong>${nome}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao periodo: <strong>${periodo}<strong><br>`
+           RelatorioOperacional.innerHTML+=`Dados referente ao ativo:<strong> ${ativo}<strong><br>`
+
+           }
+         }
+    }
+    
+</script>
+
+   
+
+    
+   
+    
+    
+   
+    
+</body>
+</html>

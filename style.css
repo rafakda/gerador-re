@@ -1,0 +1,191 @@
+:root{
+    --corfundo:rgb(225, 225, 238);
+    --cormain:rgb(0, 0, 17);
+    --corinput:rgb(255, 255, 255);
+    --cortitulos:purple;
+    --corlinhas:rgba(206, 199, 199, 0.433);
+}
+body{
+    background-color: var(--corfundo);
+    color: var(--corfundo);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+nav{
+    border: solid var(--corlinhas) 1px;
+    width: 45%;
+    margin: auto;
+    padding: 5px 0;
+}
+#titulo{
+    color: var(--cortitulos);
+}
+#titulo2{
+    color: var(--cortitulos);
+}
+#titulo3{
+     color: var(--cortitulos);
+}
+
+#coteudoConteiner{
+    border: solid var(--corlinhas) 1px;
+    padding: 5px;
+}
+.labelPai{
+    text-align: left;
+    margin: 5px 0 0 0;
+}
+.label{
+    width: 50px;
+    text-align: justify;
+    justify-content: left;
+
+}
+.inputdados{
+    width: 99%;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 0;
+    gap: 10px;
+    height: 30px;
+    padding-left: 5px;
+    background-color: var(--corfundo);
+
+}
+.conteudo-dadosOperacionais{
+    background-color: var(--cormain);
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+}
+#conteinerMeio{
+    border: solid var(--corlinhas) 1px;
+    padding: 5px;
+}
+#conteinerPai{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#conteiner-1{
+
+    width: 90%;
+}
+#conteiner-2{
+    width: 90%;
+    
+}
+.input{
+    background-color: var(--corfundo);
+    width: 92%;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    gap: 10px;
+
+}
+#modalidade1{
+    color: var(--cortitulos);
+    text-align: left;
+}
+#modalidade{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+#button-pai{
+    text-align: center;
+}
+#button{
+    padding: 10px;
+    width: 40%;
+    background-color: var(--cortitulos);
+    color: var(--corinput);
+    font-weight: bold;
+}
+#conteudo{
+    border: solid var(--corlinhas) 1px;
+    padding: 5px;
+    
+}
+#numeroDeOperacoes{
+    background-color: var(--corfundo);
+    height: 30px;
+    color: black;
+    font-weight: bold;
+}
+#mediaDeOperacoes{
+    background-color: var(--corfundo);
+    height: 30px;
+    color: black;
+    font-weight: bold;
+}
+#resultadoAmostra{
+    background-color: var(--corfundo);
+    height: 30px;
+    color: black;
+    font-weight: bold;
+}
+#RelatorioOperacional{
+    background-color: var(--corfundo);
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+}
+.inputResultado{
+    text-align: left;
+    font-weight: bold;
+}
+#darf{
+    text-align: right;
+}
+a{
+    background-color: var(--corlinhas);
+    width: 120px;
+    padding: 4px 10px;
+    color: antiquewhite;
+}
+@media (max-width: 900px) {
+    nav{
+        width: 100%;
+    
+    }
+    .input{
+        width: 80%;
+    }
+    #button{
+        width: 70%;
+  }
+  #modalidade{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: baseline;
+    margin-top: 10px;
+  }
+  #numeroDeOperacoes{
+    padding: 10px;
+}
+#mediaDeOperacoes{
+padding: 10px;
+}
+#resultadoAmostra{
+    padding: 10px;
+}
+#darf{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+}
